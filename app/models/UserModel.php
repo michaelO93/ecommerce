@@ -1,5 +1,7 @@
 <?php
-class UserModel extends Eloquent{
-    protected $table = 'registration';
-}
 
+class UserModel extends Eloquent {
+
+    protected $table = 'registration';
+
+}

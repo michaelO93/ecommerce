@@ -2,15 +2,14 @@
 
 class UserController extends BaseController {
 
-    protected $layout = 'layout';
-
     public function login() {
         if (Request::isMethod('post')) {
             $email = Input::get('email');
             $password = Input::get('password');
 
             if (Auth::attempt(array('email' => $email, 'password' => $password))) {
-               Session::flash('Success_msg', 'You\'ve Successfully loggedIn');
+                Session::flash('Success_msg', 'You\'ve Successfully loggedIn');
+                return Redirect::to('admin');
             } else {
                 Session::flash('Success_msg', 'Wrong Password or Email');
             }
@@ -58,6 +57,12 @@ class UserController extends BaseController {
     public function delete($id) {
         $user = User::where('id', '=', $id)->delete();
         return Redirect::back();
+    }
+
+    public function logout() {
+        Auth::logout();
+        Session::flash('Success_msg', 'You have successfully Logged out');
+        return Redirect::to('login');
     }
 
 }

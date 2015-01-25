@@ -8,6 +8,16 @@
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" name="password" placeholder="Password">
 </div>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Remember me
+            </label>
+        </div>
+    </div>
+</div>
+
 
 
 <button type="submit" class="btn btn-default">Submit</button>

@@ -35,19 +35,10 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest())
-	{
-		if (Request::ajax())
-		{
-			return Response::make('Unauthorized', 401);
-		}
-		else
-		{
-			return Redirect::guest('login');
-		}
-	}
+        if (Auth::guest())
+                return Redirect::to('/login')
+                        ->with('error_msg', 'You must be logged in to view this page!');
 });
-
 
 Route::filter('auth.basic', function()
 {
@@ -67,7 +58,9 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+        if (Auth::check()) 
+                return Redirect::to('/')
+                        ->with('flash_notice', 'You are already logged in!');
 });
 
 /*
