@@ -13,7 +13,7 @@ class AdminController extends BaseController {
         if (Request::isMethod('post')) {
             $product_name = Input::get('product_name');
             $product_price = Input::get('product_price');
-            $product_img = Input::file('product_img')->move(public_path() . '/product_img', Input::file('product_img')->getClientOriginalName());
+            Input::file('product_img')->move(public_path() . '/product_img', Input::file('product_img')->getClientOriginalName());
 
             $product = new Product();
             $product->product_name = $product_name;
