@@ -40,6 +40,7 @@
                                 <li><a href="#">EEE Products</a></li>
                             </ul>
                         </li>
+                        <li><a href = "/admin">Add Product</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

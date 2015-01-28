@@ -19,25 +19,13 @@ class AdminController extends BaseController {
 // select a collection (analogous to a relational database's table)
         $table = $db->product;
 
-// add a record
-//        $document = array("name" => "basir", "age" => "27");
-//        $collection->insert($document);
-// add another record, with a different "shape"
-//        $document = array("name" => "puffin",'age'=>23, "online" => true);
-//        $collection->insert($document);
-// find everything in the collection
-//        $cursor = $collection->find();
-// iterate through the results
-//        foreach ($cursor as $document) {
-//            print_r($document) . "\n";
-//        }
-
 
         if (Request::isMethod('post')) {
             $product_name = Input::get('product_name');
             $product_price = Input::get('product_price');
             Input::file('product_img')->move(public_path() . '/product_img', Input::file('product_img')->getClientOriginalName());
             $product = array(
+                'id'=>'',
                 'product_name' => Input::get('product_name'),
                 'product_price' => Input::get('product_price'),
                 'product_img' => 'product_img/' . Input::file('product_img')->getClientOriginalName()

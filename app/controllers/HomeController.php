@@ -2,22 +2,18 @@
 
 class HomeController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
+    public function all_collection() {
 
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
+        $m = new MongoClient();
+        $db = $m->laravel;
+        $table = $db->product;
+
+        $cursor = $table->find();
+        foreach ($cursor as $document) {
+            $data[] = $document;
+        }
+        $data['now'] = $data;
+        $this->layout->content = View::make('product.all_collection', $data);
+    }
 
 }

@@ -2,7 +2,7 @@
 
 Route::any('login', 'UserController@login');
 Route::any('register', 'UserController@register');
-Route::any('/', 'UserController@register');
+Route::any('/', 'HomeController@all_collection');
 Route::any('registerAction', 'UserController@registerAction');
 Route::any('showdata', 'UserController@showData');
 Route::any('delete/{id?}', 'UserController@delete');
