@@ -1,7 +1,7 @@
 <div class="row">
     
     
-    <?php foreach ($now as $all_collection): ?>
+    <?php foreach ($all_collections as $all_collection): ?>
 
         <div class="col-xs-3">
             <a class="thumbnail">

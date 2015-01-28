@@ -94,7 +94,7 @@ return array(
 	*/
 
 	'providers' => array(
-
+                'Jenssegers\Mongodb\MongodbServiceProvider',
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
