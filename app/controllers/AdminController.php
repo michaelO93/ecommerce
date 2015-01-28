@@ -10,16 +10,49 @@ class AdminController extends BaseController {
 
     public function admin() {
 
+// connect
+        $m = new MongoClient();
+
+// select a database
+        $db = $m->laravel;
+
+// select a collection (analogous to a relational database's table)
+        $table = $db->product;
+
+// add a record
+//        $document = array("name" => "basir", "age" => "27");
+//        $collection->insert($document);
+// add another record, with a different "shape"
+//        $document = array("name" => "puffin",'age'=>23, "online" => true);
+//        $collection->insert($document);
+// find everything in the collection
+//        $cursor = $collection->find();
+// iterate through the results
+//        foreach ($cursor as $document) {
+//            print_r($document) . "\n";
+//        }
+
+
         if (Request::isMethod('post')) {
             $product_name = Input::get('product_name');
             $product_price = Input::get('product_price');
             Input::file('product_img')->move(public_path() . '/product_img', Input::file('product_img')->getClientOriginalName());
+            $product = array(
+                'product_name' => Input::get('product_name'),
+                'product_price' => Input::get('product_price'),
+                'product_img' => 'product_img/' . Input::file('product_img')->getClientOriginalName()
+            );
 
-            $product = new Product();
-            $product->product_name = $product_name;
-            $product->product_price = $product_price;
-            $product->product_img = 'product_img/' . Input::file('product_img')->getClientOriginalName();
-            $product->save();
+            $table->insert($product);
+//            $product_name = Input::get('product_name');
+//            $product_price = Input::get('product_price');
+//            Input::file('product_img')->move(public_path() . '/product_img', Input::file('product_img')->getClientOriginalName());
+//
+//            $product = new Product();
+//            $product->product_name = $product_name;
+//            $product->product_price = $product_price;
+//            $product->product_img = 'product_img/' . Input::file('product_img')->getClientOriginalName();
+//            $product->save();
             Session::flash('Success_msg', 'You have successfuly Inserted a product');
         }
         $this->layout->content = View::make('admin');
