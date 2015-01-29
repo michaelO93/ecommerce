@@ -3,8 +3,9 @@
     <th>product_price</th>
     <?php foreach ($carts as $cart): ?>
         <tr>
-            <td><?php print_r($cart) ; //echo $cartproduct_name; ?></td>
-            <td><?php echo $cart->product_price ; ?></td>
-        </tr>
-    <?php endforeach; ?>
+        <pre><?php print_r($cart); ?> </pre>
+        <td> <?php echo $cart[0][0]['product_name']; ?></td>
+
+    </tr>
+<?php endforeach; ?>
 </table>

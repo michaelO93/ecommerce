@@ -3,27 +3,17 @@
 
     <?php foreach ($all_collections as $all_collection): ?>
 
-        <div class="col-xs-3">
-            <a class="thumbnail">
-                <img class="img-responsive" src="<?php echo $all_collection['product_img']; ?>"  ?>
-                <h4 style="height: 46px" class="text-center text-muted"><?php echo $all_collection['product_name']; ?></h4>
-                <div style="margin: 0 -5px"><hr></div>
-                <div class="row">
-                    <div class="col-xs-8">
-
-                        <div class="pull-right" style="color: black;">Tk <?php echo $all_collection['product_price']; ?></div>
-
+<!--        <div class="row">-->
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="<?php echo $all_collection['product_img']; ?> " alt="<?php echo $all_collection['product_img']; ?>" style="width: 325px; height: 200px;">
+                    <div class="caption">
+                        <h3><?php echo $all_collection['product_name'];?></h3>
+                        <p>Tk<?php echo $all_collection['product_price'];?></p>
+                        <p><a href="/AddToCart/<?php echo $all_collection['id']; ?>" class="btn btn-primary" role="button">Add To Cart</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                     </div>
-                    
                 </div>
-                <div class="row">
-                <div class="col-xs-8">
-
-                        <div class="pull-right" style="color: black;"><a href = "/AddToCart/<?php echo $all_collection['id']; ?>" >Add To Cart</a></div>
-
-                    </div>
-                </div>>    
-            </a>
-        </div>
+            </div>
+        <!--</div>-->
     <?php endforeach; ?>
 </div>
