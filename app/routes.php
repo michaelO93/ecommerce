@@ -20,3 +20,7 @@ Route::group(['prefix' => 'api/vi', 'before'=>'oauth'], function(){
 Route::post('oauth/access_token', function() {
     return Response::json(Authorizer::issueAccessToken());
 });
+
+Route::any('AddToCart/{id?}', 'SessionController@AddToCart');
+
+Route::any('cart', 'CartController@Cart');

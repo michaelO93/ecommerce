@@ -56,7 +56,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cart <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">0 Product added</a></li>
+                                <li><a href="/cart">Your cart</a></li>
 
                             </ul>
                         </li>

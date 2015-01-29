@@ -1,6 +1,6 @@
 <div class="row">
-    
-    
+
+
     <?php foreach ($all_collections as $all_collection): ?>
 
         <div class="col-xs-3">
@@ -9,12 +9,20 @@
                 <h4 style="height: 46px" class="text-center text-muted"><?php echo $all_collection['product_name']; ?></h4>
                 <div style="margin: 0 -5px"><hr></div>
                 <div class="row">
-                    <div class="col-xs-6">
-                        
+                    <div class="col-xs-8">
+
                         <div class="pull-right" style="color: black;">Tk <?php echo $all_collection['product_price']; ?></div>
-                        
+
                     </div>
+                    
                 </div>
+                <div class="row">
+                <div class="col-xs-8">
+
+                        <div class="pull-right" style="color: black;"><a href = "/AddToCart/<?php echo $all_collection['id']; ?>" >Add To Cart</a></div>
+
+                    </div>
+                </div>>    
             </a>
         </div>
     <?php endforeach; ?>
