@@ -1,12 +1,23 @@
 <table class="table table-bordered">
-    <th>product_name</th>
-    <th>product_price</th>
-    <?php $carts = Session::get('product');
-    foreach ($carts as $cart):
-        ?>
+    <th>product Image</th>
+    <th>product name</th>
+    <th>product price</th>
+    <?php $price=0; ?>
+    
+    <?php foreach ($carts as $cart): ?>
         <tr>
-            <td> <?php echo $cart[0]['product_name']; ?></td>
-            <td><?php echo $cart[0]['product_price']; ?></td>
+            <td><img src="<?php echo $cart->product_img; ?>" style="width:100px; height:100px;" > </td>
+
+            <td><?php echo $cart->product_name; ?> </td>
+            <td><?php echo $cart->product_price;
+           $price=$price+$cart->product_price;         
+            ?> </td>
+             
         </tr>
-<?php endforeach; ?>
+    <?php endforeach; ?>
+        <tr>
+            <td style="border:0px"></td>
+            <td style="border:0px">Total Price</td>
+            <td><?php echo $price ?></td>      
+        </tr>
 </table>

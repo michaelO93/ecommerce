@@ -18,7 +18,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">E-commerce</a>
+                    <a class="navbar-brand" href="/">Vazar</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -34,13 +34,18 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Products <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="all_collection">All Collection</a></li>
-                                <li><a href="#">Wear Collection</a></li>
-                                <li><a href="#">Computer Accesories</a></li>
-                                <li><a href="#">Hardware Collection</a></li>                             
-                                <li><a href="#">EEE Products</a></li>
+                                <li><a href="wear">Wear Collection</a></li>
+                                <li><a href="computer">Computer Accesories</a></li>
+                                <li><a href="hardware">Hardware Collection</a></li>                             
+                                <li><a href="eee">EEE Products</a></li>
                             </ul>
                         </li>
                         <li><a href = "/admin">Add Product</a></li>
+                          <?php
+                        if (Auth::check()): ?>
+                           
+                        <li><a href = "/profile">My Profile</a></li>
+                       <?php endif; ?>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

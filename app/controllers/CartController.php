@@ -5,10 +5,9 @@ class CartController extends BaseController {
     protected $layout = 'layout';
 
     public function cart() {
-        if (Session::has('product')) {
-            $this->layout->content = View::make('product.cart');
-        } else {
-            Session::flash('Success_msg', 'Your cart is empty');
+        if (Session::has('item')) {
+            $data['carts'] = Session::get('item');
+            $this->layout->content = View::make('product.cart', $data);
         }
     }
 

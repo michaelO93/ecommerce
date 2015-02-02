@@ -7,7 +7,7 @@
     foreach ($users as $user) {
         ?>
         <tr>
-            <td class="text-danger"><?php echo $user->name ?></td>
+            <td class="text-danger"><?php echo $user->username; ?></td>
             <td><?php echo $user->email ?></a></td>
             <td><a href="/delete/<?php echo $user->id; ?>">Delete</a></td>
             <td><a href="/update/<?php echo $user->id; ?>">Update</a></td>
