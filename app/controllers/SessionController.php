@@ -17,14 +17,15 @@ class SessionController extends BaseController {
 //        Session::flash("Success_msg", "one product has been added to cart");
 //        return Redirect::to('/');
 //    }
-      public function AddToCart() {
+    public function AddToCart() {
 
-    if (Request::isMethod('post')) {
-           
-          $product_id=Input::get('id');
-           $product_quantity = Input::get('quantity');
+        if (Request::isMethod('post')) {
+
+            $product_id = Input::get('id');
+            $product_quantity = Input::get('quantity');
             echo $product_quantity;
-           echo $product_id;
+            echo '<br>';
+            echo $product_id;
             die();
             $product_price = Input::get('product_price');
             Input::file('product_img')->move(public_path() . '/product_img', Input::file('product_img')->getClientOriginalName());
@@ -36,9 +37,9 @@ class SessionController extends BaseController {
             $product->product_img = 'product_img/' . Input::file('product_img')->getClientOriginalName();
             $product->save();
             Session::flash('Success_msg', 'You have successfuly Inserted a product');
-       // }
-       // $this->layout->content = View::make('admin');
+            // }
+            // $this->layout->content = View::make('admin');
+        }
     }
 
-}
 }
