@@ -8,7 +8,6 @@
     <?php foreach ($carts as $cart): ?>
         <tr>
             <td><img src="<?php echo $cart->product_img; ?>" style="width:100px; height:100px;" > </td>
-
             <td><?php echo $cart->product_name; ?> </td>
             <td><?php echo $cart->product_quantity; ?></td>
             <td><?php echo $cart->product_price;

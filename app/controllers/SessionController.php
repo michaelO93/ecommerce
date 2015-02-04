@@ -23,11 +23,41 @@ class SessionController extends BaseController {
 
             $product_id = Input::get('id');
             $product_quantity = Input::get('quantity');
-            $product = Product::find($product_id);       
+            $product = Product::find($product_id); 
+            
+            
+            
+            
+            
+            $session=Session::get('item');
+            print_r($session);
+            echo "<br>";
+            foreach ($session as $session_key=>$session_value)
+            {
+                print_r($session_value->product_price);
+                
+            }
+            die();
+            print_r( $session[2]['54d2608ebc3ee']);
+            die();
+            if(Session::has($product_id))
+            {
+                echo "get it";
+                die();
+            }
+            $product->product_id=$product_id;
+//            
+            
+            
+            
+            
+            
             $product->product_price = $product_quantity * $product->product_price;
             $product->product_quantity=$product_quantity;
-
-            Session::push('item', $product);
+            $now[uniqid()]=array('id'=>$product_id,'product_price'=>$product->product_price);
+            Session::push('item', $now);
+            //die();
+            //Session::push('item', $product);
             Session::flash("Success_msg", "one product has been added to cart");
             return Redirect::to('/');
 
