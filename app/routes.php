@@ -33,4 +33,4 @@ Route::any('AddToCart', 'SessionController@AddToCart');
 //Route::post('AddToCart/{id}', ['as' => 'timeline.AddToCart', 'uses' => 'SessionController@AddToCart']);
 
 Route::any('cart', 'CartController@Cart');
-Route::any('delelete_product_session', 'SessionController@delelete_product_session');
+Route::any('delete_product_session/{id?}', 'SessionController@delete_product_session');

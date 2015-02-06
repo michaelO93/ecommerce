@@ -77,9 +77,22 @@ class SessionController extends BaseController {
         }
     }
 
-    public function delelete_product_session() {
-        Session::forget('item');
-        Return Redirect::to('/');
+    public function delete_product_session($id) {
+        $cart = Session::get('item');
+        foreach ($cart as $key => $value) {
+            if ($id == $value['_id']) {
+                unset($cart[$key]);
+                break;
+            }
+        }
+        if (empty($cart)) {
+            Session::forget('item');
+        } else {
+            $cart = array_values($cart);
+            Session::put('item', $cart);
+        }
+        Session::flash('Success_msg', 'Product successfully removed from cart.');
+        return Redirect::back();
     }
 
 }
