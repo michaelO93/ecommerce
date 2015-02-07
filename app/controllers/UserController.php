@@ -96,35 +96,6 @@ class UserController extends BaseController {
             }
         }
 
-//            //echo "y";die();
-//            $email = Auth::user()->email;
-//            //$user = new UserModel;
-//            $user = User::where('email', '=', $email)->get();
-//           
-//            
-//            $name=$user[0]['username'] = Input::get('username');
-//            //$user[0]['email'] = Input::get('email');
-//            $mobile=$user[0]['mobile'] = Input::get('mobile');
-//            $loc=$user[0]['location'] = Input::get('location');
-//            $pass=$user[0]['password'] = Hash::make(Input::get('password'));
-//             //print_r($user);
-//            //die();
-//            //$nowemail = UserModel::where('email', '=', $email);
-//
-//            //if ($nowemail->count()) {
-//            //    Session::flash('Success_msg', 'Your email is already registered');
-//            //} else {
-//                if ($name && $mobile && $loc && $pass) {
-//                    $user->save();
-//                    Session::flash('Success_msg', 'You\'ve Successfully updated');
-//                } else {
-//                    Session::flash('Success_msg', 'Please Enter all the field');
-//                }
-//            //}
-//        }
-//        $email = Auth::user()->email;
-//        $data['users'] = User::where('email', '=', $email)->get();
-
         $data['users'] = $user;
         $this->layout->content = View::make('update', $data);
     }

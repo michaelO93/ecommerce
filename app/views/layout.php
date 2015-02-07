@@ -46,6 +46,11 @@
                            
                         <li><a href = "/profile">My Profile</a></li>
                        <?php endif; ?>
+                                                  <?php
+                        if (Auth::check()): ?>
+                           
+                        <li><a href = "/myproducts">My Products</a></li>
+                       <?php endif; ?>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

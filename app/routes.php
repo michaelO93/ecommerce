@@ -13,11 +13,14 @@ Route::any('update', 'UserController@update');
 
 
 Route::any('admin', 'AdminController@admin');
+
+Route::any('myproductupdate/{id?}', 'ProductController@myproductupdate');
 Route::any('all_collection', 'ProductController@all_collection');
 Route::any('wear', 'ProductController@wear');
 Route::any('computer', 'ProductController@computer');
 Route::any('hardware', 'ProductController@hardware');
 Route::any('eee', 'ProductController@eee');
+Route::any('myproducts', 'ProductController@myproducts');
 
 
 Route::group(['prefix' => 'api/vi', 'before'=>'oauth'], function(){

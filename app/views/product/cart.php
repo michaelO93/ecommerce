@@ -17,7 +17,6 @@
                 $price = $price + $cart->product_price;
                 ?> </td>
             <td><a href="delete_product_session/<?php echo $cart['_id']; ?>">Delete</a></td>
-
         </tr>
     <?php endforeach; ?>
     <tr>

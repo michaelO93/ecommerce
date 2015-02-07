@@ -1,4 +1,4 @@
-<div class="row">
+<!--<div class="row">-->
 
     <?php foreach ($all_collections as $all_collection): ?>
         <?php
@@ -23,4 +23,4 @@
         </div>
     </form>
 <?php endforeach; ?>
-</div>
+<!--</div>-->
