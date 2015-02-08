@@ -14,6 +14,9 @@ Route::any('update', 'UserController@update');
 
 Route::any('admin', 'AdminController@admin');
 
+
+
+Route::any('myproductedit', 'ProductController@myproductedit');
 Route::any('myproductupdate/{id?}', 'ProductController@myproductupdate');
 Route::any('all_collection', 'ProductController@all_collection');
 Route::any('wear', 'ProductController@wear');

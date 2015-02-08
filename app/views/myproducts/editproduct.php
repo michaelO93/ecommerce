@@ -1,6 +1,6 @@
 <div class="row">
-    
-    <?php echo Form::open(array('url' => 'myproductupdate', 'method' => 'post', 'files' => 'true')); ?>
+
+    <?php echo Form::open(array('url' => 'myproductedit', 'method' => 'post', 'files' => 'true')); ?>
 
     <div class="form-group">
         <label for="product_categoty">Product Categoty</label>
@@ -23,9 +23,8 @@
         <label for="product_img">Product Image</label>
         <input type="file" name="product_img">
     </div>
-
+    <input type="hidden" name="id" value="<?php echo $editproducts->_id ?>">
     <button type="submit" class="btn btn-default">Submit</button>
-    <button type="reset" class="btn btn-primary">Reset</button>
 </form>
 </div>
 

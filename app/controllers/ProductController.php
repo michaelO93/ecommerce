@@ -51,8 +51,17 @@ class ProductController extends BaseController {
             $myproduct['editproducts']=Product::find($id);
            
 
-            if (Request::isMethod('post')) {
-                
+
+
+           // $data['editproducts'] = Product::find($product_id);
+           $this->layout->content = View::make('myproducts.editproduct', $myproduct);
+            
+       }
+       
+       public function myproductedit() {
+           
+                       if (Request::isMethod('post')) {
+                $product_id=Input::get('id');
             $product_category=Input::get('category');
             $product_name = Input::get('product_name');
             $product_price = Input::get('product_price');
@@ -64,23 +73,19 @@ class ProductController extends BaseController {
             else 
             {
                 Session::flash('Success_msg', 'Please select product image'); 
-                //return Redirect::to('myproductupdate');
+                return Redirect::back();
             }
             
-            $product = new Product();
+            $product=Product::find($product_id);
             $product->category = $product_category;
             $product->product_name = $product_name;
             $product->product_price = $product_price;
             $product->product_img = 'product_img/' . Input::file('product_img')->getClientOriginalName();
             $product->save();
             Session::flash('Success_msg', 'You have successfuly Updated a product');
-           // return Redirect::to('myproducts');
+            return Redirect::to('myproducts');
             
             }
-
-           // $data['editproducts'] = Product::find($product_id);
-           $this->layout->content = View::make('myproducts.editproduct', $myproduct);
-            
-       }
+       } 
 
 }
