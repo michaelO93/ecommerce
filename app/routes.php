@@ -14,6 +14,8 @@ Route::any('update', 'UserController@update');
 
 Route::any('admin', 'AdminController@admin');
 
+Route::any('search', 'SearchController@search');
+
 
 Route::any('SuperAdmin', 'SuperAdminController@SuperAdmin');
 Route::any('deleteproduct/{id?}', 'SuperAdminController@deleteproduct');
