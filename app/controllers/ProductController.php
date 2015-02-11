@@ -70,21 +70,16 @@ class ProductController extends BaseController {
             if($product_img){
             Input::file('product_img')->move(public_path() . '/product_img', Input::file('product_img')->getClientOriginalName());
             }
-            else 
-            {
-                Session::flash('Success_msg', 'Please select product image'); 
-                return Redirect::back();
-            }
-            
             $product=Product::find($product_id);
             $product->category = $product_category;
             $product->product_name = $product_name;
             $product->product_price = $product_price;
+            if($product_img){
             $product->product_img = 'product_img/' . Input::file('product_img')->getClientOriginalName();
+            }
             $product->save();
             Session::flash('Success_msg', 'You have successfuly Updated a product');
             return Redirect::to('myproducts');
-            
             }
        } 
 

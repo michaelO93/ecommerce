@@ -41,16 +41,25 @@
                             </ul>
                         </li>
                         <li><a href = "/admin">Add Product</a></li>
-                          <?php
-                        if (Auth::check()): ?>
-                           
-                        <li><a href = "/profile">My Profile</a></li>
-                       <?php endif; ?>
-                                                  <?php
-                        if (Auth::check()): ?>
-                           
-                        <li><a href = "/myproducts">My Products</a></li>
-                       <?php endif; ?>
+                        <?php if (Auth::check()): ?>
+
+                            <li><a href = "/profile">My Profile</a></li>
+                        <?php endif; ?>
+                        <?php if (Auth::check()): ?>
+
+                            <li><a href = "/myproducts">My Products</a></li>
+                        <?php endif; ?>
+                        
+                        <?php
+                        if (Auth::check()):
+                        $emailadmin = "md.imrulcse@gmail.com";
+                        $email = Auth::user()->email;
+                       if ($emailadmin==$email):?>
+
+                        <li><a href = "/SuperAdmin">Super Admin</a></li>
+                        <?php endif;
+                        endif;
+                        ?>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

@@ -15,6 +15,10 @@ Route::any('update', 'UserController@update');
 Route::any('admin', 'AdminController@admin');
 
 
+Route::any('SuperAdmin', 'SuperAdminController@SuperAdmin');
+Route::any('deleteproduct/{id?}', 'SuperAdminController@deleteproduct');
+
+
 
 Route::any('myproductedit', 'ProductController@myproductedit');
 Route::any('myproductupdate/{id?}', 'ProductController@myproductupdate');
@@ -39,4 +43,5 @@ Route::any('AddToCart', 'SessionController@AddToCart');
 //Route::post('AddToCart/{id}', ['as' => 'timeline.AddToCart', 'uses' => 'SessionController@AddToCart']);
 
 Route::any('cart', 'CartController@Cart');
+Route::any('CartUpdate', 'CartController@CartUpdate');
 Route::any('delete_product_session/{id?}', 'SessionController@delete_product_session');
